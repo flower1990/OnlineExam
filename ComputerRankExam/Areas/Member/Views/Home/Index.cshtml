@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "基础信息";
+    Layout = "~/Areas/Member/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    if (@ViewBag.UserType == "card")
+    {
+        Html.RenderAction("CardInfo", "Home");
+    }
+    else
+    {
+        Html.RenderAction("UserInfo", "Home");
+    }
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,71 @@
+﻿@model ComputerRankExam.Models.HomeViewModel
+@{
+    ViewBag.Title = "首页";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.SuperSlide.js")" type="text/javascript" charset="utf-8"></script>
+
+<!---start-images-slider---->
+<div class="image-slider">
+    <div class="slider_title">全国计算机等级考试</div>
+    <div class="rslides">
+        <a href="@Url.Action("Index", "Home", routeValues: new { Area = "Computer" })">
+            <img src="@Url.Content("~/content/images/common/exam_computer.jpg")" alt="" />
+        </a>
+    </div>
+    <div class="slider-info">
+
+    </div>
+</div>
+<!---End-images-slider---->
+<!---start-images-slider---->
+<div class="image-slider">
+    <div class="slider_title">会计从业资格考试</div>
+    <div class="rslides">
+        <a href="@Url.Action("Index", "Home", routeValues: new { Area = "Accounting" })">
+            <img src="@Url.Content("~/content/images/common/exam_accounting.jpg")" alt="" />
+        </a>
+    </div>
+    <div class="slider-info">
+
+    </div>
+</div>
+<div class="clear"></div>
+<!---End-images-slider---->
+<div class="www360buy">
+    <div class="hd">
+        <ul>
+            <li class="on">全国计算机等级考试</li>
+            <li class="">会计从业资格考试</li>
+        </ul>
+    </div>
+    <div class="bd">
+        <ul class="lh">
+            @foreach (var item in Model.jsjExamFile)
+            {
+                <li>
+                    <div class="p-img ld"><a href="#" title="@item.FileIntroduction"><img src="@Url.Content("~/content/images/icon/soft_cd1.png")"></a></div>
+                    <div class="p-name"><a href="#" title="@item.FileTitle">@item.FileTitle</a></div>
+                    <div class="p-price">
+                        @Html.ActionLink("下载", "DownLoadFile", "Home", new { id = item.FileID, page = Request.Url.ToString(), Area = "Computer" }, new { target = "_blank" })
+                    </div>
+                </li>
+            }
+        </ul>
+
+        <ul class="lh">
+            @foreach (var item in Model.kjExamFile)
+            {
+                <li>
+                    <div class="p-img ld"><a href="#" title="@item.FileIntroduction"><img src="@Url.Content("~/content/images/icon/soft_cd2.png")"></a></div>
+                    <div class="p-name"><a href="#" title="@item.FileTitle">@item.FileTitle</a></div>
+                    <div class="p-price">
+                        @Html.ActionLink("下载", "DownLoadFile", "Home", new { id = item.FileID, page = Request.Url.ToString(), Area = "Accounting" }, new { target = "_blank" })
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">jQuery(".www360buy").slide({ delayTime: 0 });</script>

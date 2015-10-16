@@ -1,0 +1,43 @@
+﻿@model ComputerRankExam.Areas.Computer.Models.DownLoadViewModel
+@{
+    ViewBag.Title = "下载中心";
+    Layout = "~/Areas/Computer/Views/Shared/_Layout.cshtml";
+}
+
+<!---End-header---->
+<div class="zhuti">
+    <div class="left">
+        @{Html.RenderAction("Left", "Home");}
+    </div>
+    <div class="right">
+        <div class="div_ny_title_bg">
+        </div>
+        <div class="r_navigation">
+            <a href="">下载中心</a>
+        </div>
+        <div class="clear">
+        </div>
+        <div class="download">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tbody>
+                    @foreach (var item in Model.downloadfiles)
+                    {
+                        <tr>
+                            <td style=" text-align:left;" title="@item.FileIntroduction">
+                                @item.FileTitle
+                            </td>
+                            <td>
+                                @(item.ExamFileTypeID == 2 ? "[客户端]" : "[资源]")
+                            </td>
+                            <td>
+                                @Html.ActionLink("下载", "DownLoadFile", "Home", new { id = item.FileID, page = Request.Url.ToString() }, new { target = "_blank" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="clear">
+</div>

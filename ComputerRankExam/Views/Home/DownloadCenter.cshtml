@@ -1,0 +1,35 @@
+﻿@model ComputerRankExam.Models.HomeViewModel
+@{
+    ViewBag.Title = "资源下载";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="wrap">
+        <div class="services1">
+            <h4>资源下载</h4>
+            <div class="content-top-grids services-grids">
+                @foreach (var item in Model.ExamFile)
+                {
+                    <div class="content-top-grid services-grid1">
+                        <div class="content-top-grid-header">
+                            <div class="content-top-grid-pic">
+                                <a href="#"><img src="@Url.Content("~/content/images/soft_cd.jpg")" title="image-name"></a>
+                            </div>
+                            <div class="content-top-grid-title">
+                                <h3 title="@item.FileTitle">@Sower.CommFunction.CommonUnits.StringSubstring(@item.FileTitle, 8)</h3>
+                            </div>
+                            <div class="clear"> </div>
+                        </div>
+                        <p title="@item.FileIntroduction">@Sower.CommFunction.CommonUnits.StringSubstring(@item.FileIntroduction, 20)</p>
+                        <a class="grid-button" href="@Url.Action("DownloadCenterFiles", "Home", new { id = item.FileID })">下载</a>
+                        <div class="clear"> </div>
+                    </div>
+                }
+                <div class="clear"> </div>
+            </div>
+        </div>
+        <div class="clear"> </div>
+    </div>
+    <!----End-content----->
+</div>

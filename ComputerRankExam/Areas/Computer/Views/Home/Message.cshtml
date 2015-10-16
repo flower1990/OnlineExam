@@ -1,0 +1,97 @@
+﻿@model ComputerRankExam.Areas.Computer.Models.MessageViewModel
+@{
+    ViewBag.Title = "签写留言";
+    Layout = "~/Areas/Computer/Views/Shared/_Layout.cshtml";
+}
+
+<div class="zhuti">
+    <div class="">
+        <div class="r_navigation" style="text-align: center; margin-top:30px; width:100%;">
+            <a href="@Url.Action("MessageList", "Home")">返回留言板</a>
+        </div>
+        <div class=" clear">
+        </div>
+        <div style="margin: 30px auto; border: 1px solid #DEDEE0;">
+            @using (Html.BeginForm("Message", "Home", FormMethod.Post, new { id = "messageForm" }))
+            {
+                <table border="0" cellpadding="0" cellspacing="0" style=" width:600px; margin:0 auto;">
+                    <tr>
+                        <td class="tb_pading_lef" align="right" width="79" height="40">
+                            昵称：
+                        </td>
+                        <td align="left">
+                            @Html.TextBox("sname", "", new { @class = "stext" })
+                            @Html.ValidationMessageFor(Model => Model.sname, "", new { @class = "tipinfo" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tb_pading_lef" align="right" width="79" height="40">
+                            电话：
+                        </td>
+                        <td align="left">
+                            @Html.TextBox("Phone", "", new { @class = "stext" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tb_pading_lef" align="right" width="79" height="40">
+                            QQ：
+                        </td>
+                        <td align="left">
+                            @Html.TextBox("QQ", "", new { @class = "stext" })
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tb_pading_lef" align="right" width="79" height="40">
+                            E-Mail：
+                        </td>
+                        <td align="left">
+                            @Html.TextBox("Email", "", new { @class = "stext" })
+                            @Html.ValidationMessageFor(Model => Model.Email, "", new { @class = "tipinfo" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tb_pading_lef" align="right" width="79" height="40">
+                            标题：
+                        </td>
+                        <td align="left">
+                            @Html.TextBox("stitle", "", new { @class = "stext", width = "200" })
+                            @Html.ValidationMessageFor(Model => Model.stitle, "", new { @class = "tipinfo" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tb_pading_lef" align="right" width="79" height="100">
+                            内容：
+                        </td>
+                        <td align="left">
+                            @Html.TextArea("content", "", new { @class = "stext", style = "width:400px;height:80px;" })
+                            @Html.ValidationMessageFor(Model => Model.content, "", new { @class = "tipinfo" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tb_pading_lef" align="right" width="79" height="40">
+                            验证码：
+                        </td>
+                        <td align="left">
+                            @Html.TextBox("ValidCode", "", new { @class = "stext", maxlength = "6", onfocus = "this.select();", style = "width: 50px;" })
+                            <img id="srcValidCode" title="看不清楚，换一个"
+                                 src="@Url.Action("GetValidateCode", "Login")" align="absmiddle" style="border-width: 0px;cursor:pointer;" />
+                            @Html.ValidationMessageFor(Model => Model.ValidCode, "", new { @class = "tipinfo" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tb_pading_lef" align="right" height="50"></td>
+                        <td align="left">
+                            <button name="Submit" type="submit" class="Button BlueButton Button18" style="border: none;
+                                float: left; cursor: pointer; padding: 0px;">
+                                提交留言
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            }
+        </div>
+    </div>
+</div>
+<div class="clear">
+</div>

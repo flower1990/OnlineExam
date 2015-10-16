@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B0A1E917-F18A-4844-A6AC-E82D4450DB07}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ComputerRankExam</RootNamespace>
+    <AssemblyName>ComputerRankExam</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="DataAnnotationsExtensions">
+      <HintPath>..\packages\DataAnnotationsExtensions.1.1.0.0\lib\NETFramework40\DataAnnotationsExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.40804.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\CheckLogin.cs" />
+    <Compile Include="App_Start\PageHelper.cs" />
+    <Compile Include="App_Start\SysFun.cs" />
+    <Compile Include="Areas\Accounting\AccountingAreaRegistration.cs" />
+    <Compile Include="Areas\Accounting\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Accounting\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Accounting\Controllers\MenuController.cs" />
+    <Compile Include="Areas\Accounting\HtmlHelpers\PagingHelpers.cs" />
+    <Compile Include="Areas\Accounting\Models\ColumnsListViewModel.cs" />
+    <Compile Include="Areas\Accounting\Models\DetailViewModel.cs" />
+    <Compile Include="Areas\Accounting\Models\DownLoadViewModel.cs" />
+    <Compile Include="Areas\Accounting\Models\IndexViewModel.cs" />
+    <Compile Include="Areas\Accounting\Models\LeftViewModel.cs" />
+    <Compile Include="Areas\Accounting\Models\MessageListViewModel.cs" />
+    <Compile Include="Areas\Accounting\Models\MessageViewModel.cs" />
+    <Compile Include="Areas\Accounting\Models\NavigateViewModel.cs" />
+    <Compile Include="Areas\Accounting\Models\PagingInfo.cs" />
+    <Compile Include="Areas\Computer\ComputerAreaRegistration.cs" />
+    <Compile Include="Areas\Computer\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Computer\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Computer\Controllers\MenuController.cs" />
+    <Compile Include="Areas\Computer\HtmlHelpers\PagingHelpers.cs" />
+    <Compile Include="Areas\Computer\Models\ColumnsListViewModel.cs" />
+    <Compile Include="Areas\Computer\Models\DetailViewModel.cs" />
+    <Compile Include="Areas\Computer\Models\DownLoadViewModel.cs" />
+    <Compile Include="Areas\Computer\Models\IndexViewModel.cs" />
+    <Compile Include="Areas\Computer\Models\LeftViewModel.cs" />
+    <Compile Include="Areas\Computer\Models\MessageListViewModel.cs" />
+    <Compile Include="Areas\Computer\Models\MessageViewModel.cs" />
+    <Compile Include="Areas\Computer\Models\NavigateViewModel.cs" />
+    <Compile Include="Areas\Computer\Models\PagingInfo.cs" />
+    <Compile Include="Areas\Computer\Models\ProductListViewModel.cs" />
+    <Compile Include="Areas\Member\Controllers\AccountCenterController.cs" />
+    <Compile Include="Areas\Member\Controllers\AverageUserController.cs" />
+    <Compile Include="Areas\Member\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Member\Controllers\LearnCardController.cs" />
+    <Compile Include="Areas\Member\Controllers\MenuController.cs" />
+    <Compile Include="Areas\Member\Member1AreaRegistration.cs" />
+    <Compile Include="Areas\Member\Models\ChangeEmailConfirmViewMode.cs" />
+    <Compile Include="Areas\Member\Models\ChangeEmailViewMode.cs" />
+    <Compile Include="Areas\Member\Models\ChangePasswordQuestionViewMode.cs" />
+    <Compile Include="Areas\Member\Models\ChangePasswordViewModel.cs" />
+    <Compile Include="Areas\Member\Models\LearnCardRechargeViewMode.cs" />
+    <Compile Include="Controllers\AverageUserController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\PromptController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Extensions\DisplayDescriptionExtensions.cs" />
+    <Compile Include="Extensions\EasyuiExtensions.cs" />
+    <Compile Include="Extensions\MaxWordsAttribute.cs" />
+    <Compile Include="Filters\IsLoginAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlHelpers\PagingHelpers.cs" />
+    <Compile Include="Models\FindPasswordViewModel.cs" />
+    <Compile Include="Models\HomeViewModel.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\NavigateViewModel.cs" />
+    <Compile Include="Models\PagingInfo.cs" />
+    <Compile Include="Models\Prompt.cs" />
+    <Compile Include="Models\RegisterViewModel.cs" />
+    <Compile Include="Models\TestViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\bootstrap\css\bootstrap-ie6.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-ie6.min.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\bootstrap\css\ie.css" />
+    <Content Include="Content\bootstrap\css\member.css" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\bootstrap\js\bootstrap-ie.js" />
+    <Content Include="Content\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Css\columns_ie6.css" />
+    <Content Include="Content\Css\columns.css" />
+    <Content Include="Content\Css\default_ie6.css" />
+    <Content Include="Content\Css\index_ie6.css" />
+    <Content Include="Content\Css\lrtk_ie6.css" />
+    <Content Include="Content\Css\responsiveslides_ie6.css" />
+    <Content Include="Content\Css\responsiveslides.css" />
+    <Content Include="Content\Css\default.css" />
+    <Content Include="Content\Css\index.css" />
+    <Content Include="Content\Css\lrtk.css" />
+    <Content Include="Content\Css\style_ie6.css" />
+    <Content Include="Content\Css\style.css" />
+    <Content Include="Content\Images\background\404.gif" />
+    <Content Include="Content\Images\background\bg.png" />
+    <Content Include="Content\Images\background\ypi_112.jpg" />
+    <Content Include="Content\Images\background\ypi_113.jpg" />
+    <Content Include="Content\Images\background\ypi_130.jpg" />
+    <Content Include="Content\Images\background\zxxx.jpg" />
+    <Content Include="Content\Images\background\zxxx.png" />
+    <Content Include="Content\Images\button\button_confirm.png" />
+    <Content Include="Content\Images\button\button_findpassword.png" />
+    <Content Include="Content\Images\button\button_next.png" />
+    <Content Include="Content\Images\button\check_score.jpg" />
+    <Content Include="Content\Images\button\login2.png" />
+    <Content Include="Content\Images\button\message.png" />
+    <Content Include="Content\Images\button\tjzc.png" />
+    <Content Include="Content\Images\common\01.jpg" />
+    <Content Include="Content\Images\common\02.jpg" />
+    <Content Include="Content\Images\common\03.jpg" />
+    <Content Include="Content\Images\common\404.gif" />
+    <Content Include="Content\Images\common\exam_accounting.jpg" />
+    <Content Include="Content\Images\common\exam_computer.jpg" />
+    <Content Include="Content\Images\common\logo.png" />
+    <Content Include="Content\Images\common\test_center.png" />
+    <Content Include="Content\Images\icon\ip.gif" />
+    <Content Include="Content\Images\icon\l.png" />
+    <Content Include="Content\Images\icon\loading.gif" />
+    <Content Include="Content\Images\icon\lock.png" />
+    <Content Include="Content\Images\icon\lock1.png" />
+    <Content Include="Content\Images\icon\login0.png" />
+    <Content Include="Content\Images\icon\login1.png" />
+    <Content Include="Content\Images\icon\more.png" />
+    <Content Include="Content\Images\icon\phone.png" />
+    <Content Include="Content\Images\icon\r.png" />
+    <Content Include="Content\Images\icon\soft_cd1.png" />
+    <Content Include="Content\Images\icon\soft_cd2.png" />
+    <Content Include="Global.asax" />
+    <Content Include="Areas\Computer\Views\Web.config" />
+    <Content Include="Areas\Accounting\Views\Web.config" />
+    <Content Include="Areas\Computer\Views\Login\LoginTop.cshtml" />
+    <Content Include="Areas\Computer\Views\Login\LoginTopUserPass.cshtml" />
+    <Content Include="Areas\Computer\Views\Menu\Navigate.cshtml" />
+    <Content Include="Areas\Computer\Views\Home\Detail.cshtml" />
+    <Content Include="Areas\Computer\Views\Home\DownLoad.cshtml" />
+    <Content Include="Areas\Computer\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Computer\Views\Home\Left.cshtml" />
+    <Content Include="Areas\Computer\Views\Home\List.cshtml" />
+    <Content Include="Areas\Computer\Views\Home\Message.cshtml" />
+    <Content Include="Areas\Computer\Views\Home\MessageList.cshtml" />
+    <Content Include="Areas\Computer\Views\Home\ProductList.cshtml" />
+    <Content Include="Areas\Accounting\Views\Home\Detail.cshtml" />
+    <Content Include="Areas\Accounting\Views\Home\DownLoad.cshtml" />
+    <Content Include="Areas\Accounting\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Accounting\Views\Home\Left.cshtml" />
+    <Content Include="Areas\Accounting\Views\Home\List.cshtml" />
+    <Content Include="Areas\Accounting\Views\Home\Message.cshtml" />
+    <Content Include="Areas\Accounting\Views\Home\MessageList.cshtml" />
+    <Content Include="Areas\Accounting\Views\Menu\Navigate.cshtml" />
+    <Content Include="Areas\Accounting\Views\Login\LoginTop.cshtml" />
+    <Content Include="Areas\Accounting\Views\Login\LoginTopUserPass.cshtml" />
+    <Content Include="Areas\Computer\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Accounting\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Member\Views\Web.config" />
+    <Content Include="Areas\Member\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Member\Views\AverageUser\ChangeEmail.cshtml" />
+    <Content Include="Areas\Member\Views\AverageUser\ChangeEmailConfirm.cshtml" />
+    <Content Include="Areas\Member\Views\AverageUser\ChangePassword.cshtml" />
+    <Content Include="Areas\Member\Views\AverageUser\ChangePasswordQuestion.cshtml" />
+    <Content Include="Areas\Member\Views\AverageUser\SecuritySetting.cshtml" />
+    <Content Include="Areas\Member\Views\AverageUser\SendEmail.cshtml" />
+    <Content Include="Areas\Member\Views\AverageUser\Details.cshtml" />
+    <Content Include="Areas\Member\Views\Menu\UserMenu.cshtml" />
+    <Content Include="Areas\Member\Views\Menu\CardMenu.cshtml" />
+    <Content Include="Areas\Member\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Member\Views\Home\UserInfo.cshtml" />
+    <Content Include="Areas\Member\Views\Home\CardInfo.cshtml" />
+    <Content Include="Areas\Member\Views\LearnCard\ChangePassword.cshtml" />
+    <Content Include="Areas\Member\Views\AccountCenter\LearnCardRecharge.cshtml" />
+    <Content Include="Scripts\jquery-1.7.2.min.js" />
+    <None Include="Scripts\jquery-1.8.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\jquery.SuperSlide.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.ResetSize.js" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery.ImageRolling.js" />
+    <Content Include="Scripts\Samples\MaxWordsScript.js" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Login\LoginTopUserPass.cshtml" />
+    <Content Include="Views\Prompt\Error.cshtml" />
+    <Content Include="Views\Prompt\Notice.cshtml" />
+    <Content Include="Views\Shared\_Column.cshtml" />
+    <Content Include="Views\AverageUser\Login.cshtml" />
+    <Content Include="Views\AverageUser\Register.cshtml" />
+    <Content Include="Views\AverageUser\FindPassword.cshtml" />
+    <Content Include="Views\AverageUser\ValidatePassword.cshtml" />
+    <Content Include="Views\AverageUser\ResetPassword.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\bootstrap\img\" />
+    <Folder Include="ExamFile\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sower.Business\Sower.Business.csproj">
+      <Project>{E84BA959-EC48-4326-8B38-3ED71B5BD45C}</Project>
+      <Name>Sower.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sower.CommFunction\Sower.CommFunction.csproj">
+      <Project>{69DB2966-B887-48E0-B929-8527B46B2A52}</Project>
+      <Name>Sower.CommFunction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sower.DataAccess\Sower.DataAccess.csproj">
+      <Project>{3B0EDC02-E847-4CEA-B303-DB2CE7C5C459}</Project>
+      <Name>Sower.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sower.Model\Sower.Model.csproj">
+      <Project>{d62a76b2-ce78-4393-9b8e-be2f02baec69}</Project>
+      <Name>Sower.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Error\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Introduction.cshtml" />
+    <Content Include="Views\Home\NewsInformation.cshtml" />
+    <Content Include="Views\Home\DownloadCenter.cshtml" />
+    <Content Include="Views\Home\ContactUs.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <None Include="Properties\PublishProfiles\配置文件1.pubxml" />
+    <Content Include="Views\Login\LoginTop.cshtml" />
+    <Content Include="Views\Login\LoginTopCardPass.cshtml" />
+    <Content Include="Views\Menu\IndexNav.cshtml" />
+    <Content Include="Views\Login\LoginExit.cshtml" />
+    <Content Include="Views\Error\NoFound.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6886</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

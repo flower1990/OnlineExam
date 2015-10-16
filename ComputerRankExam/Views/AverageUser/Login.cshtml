@@ -1,0 +1,67 @@
+﻿@model ComputerRankExam.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "用户登录";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Login", "AverageUser"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="form">
+        <h4>用户登陆</h4>
+        <hr />
+        <dl>
+            <dd>
+                <div class="label">@Html.LabelFor(model => model.UserName)：</div>
+                <div class="ctrl">
+                    @Html.EditorFor(model => model.UserName)
+                    @Html.ValidationMessageFor(model => model.UserName)
+                </div>
+            </dd>
+            <dd>
+                <div class="label">@Html.LabelFor(model => model.Password)：</div>
+                <div class="ctrl">
+                    @Html.PasswordFor(model => model.Password)
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+            </dd>
+            <dd>
+                <div class="label">验证码：</div>
+                <div class="ctrl">
+                    @Html.TextBoxFor(model => model.VerificationCode)
+                    @Html.ValidationMessageFor(model => model.VerificationCode)
+                </div>
+            </dd>
+            <dd>
+                <div class="label">&nbsp;</div>
+                <div class="ctrl">
+                    <img id="verificationcode" title="点击刷新" src="@Url.Action("VerificationCode", "AverageUser")" style="cursor:pointer" />
+                </div>
+            </dd>
+            <dd>
+                <div class="label">&nbsp;</div>
+                <div class="ctrl">
+                    <button name="Submit" type="submit" style="border:0px;cursor: pointer;width:118px; height:32px;">
+                        <img src="@Url.Content("~/Content/images/button/login2.png")" />
+                    </button>
+                    &nbsp;
+                    <a href="@Url.Action("FindPassword", "AverageUser")">找回密码</a>
+                </div>
+            </dd>
+        </dl>
+        <div class="clear"></div>
+    </div>
+}
+
+<script type="text/javascript">
+    $("#verificationcode").click(function () {
+        $("#verificationcode").attr("src", "@Url.Action("VerificationCode")?" + new Date());
+    })
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

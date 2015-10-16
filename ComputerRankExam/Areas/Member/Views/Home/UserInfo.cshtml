@@ -1,0 +1,36 @@
+﻿@model Sower.Model.T_AverageUser
+@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm("UserInfo", "Home", new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "content" }))
+{
+    <div class="panel-header">
+        个人信息
+        <hr />
+    </div>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <div class="control-group">
+                @Html.LabelFor(model => model.UserName, new { @class = "control-label" })
+                <label class="control-label" style="text-align:left; padding-left:20px;">
+                    @Html.DisplayFor(model => model.UserName)
+                </label>
+            </div>
+
+            <div class="control-group">
+                @Html.LabelFor(model => model.Cach, new { @class = "control-label" })
+                <label class="control-label" style="text-align:left; padding-left:20px;">
+                    @Html.DisplayFor(model => model.Cach) 铜币
+                </label>
+            </div>
+
+            <div class="control-group">
+                @Html.LabelFor(model => model.LoginTimes, new { @class = "control-label" })
+                <label class="control-label" style="text-align:left; padding-left:20px;">
+                    @Html.DisplayFor(model => model.LoginTimes) 次
+                </label>
+            </div>
+        </div>
+    </div>
+}

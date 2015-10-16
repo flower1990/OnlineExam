@@ -1,0 +1,70 @@
+﻿@model ComputerRankExam.Models.NavigateViewModel
+@{
+    Layout = null;
+}
+
+<ul>
+    <li class="@Model.css_index">
+        <a class="hide" href="@Url.Action("Index", "Home")">首页</a>
+        <!--[if lte IE 6]>
+        <a href="@Url.Action("Index", "Home")">首页
+        <table><tr><td>
+        <![endif]-->
+        <!--[if lte IE 6]>
+        </td></tr></table>
+        </a>
+        <![endif]-->
+    </li>
+    <li class="@Model.css_1">
+        <a class="hide" href="@Url.Action("Introduction", "Home")">公司简介</a>
+        <!--[if lte IE 6]>
+        <a href="@Url.Action("Introduction", "Home")">公司简介
+        <table><tr><td>
+        <![endif]-->
+        <!--[if lte IE 6]>
+        </td></tr></table>
+        </a>
+        <![endif]-->
+    </li>
+    <li class="@Model.css_2">
+        <a class="hide" href="@Url.Action("NewsInformation", "Home", new { id=12 })">新闻资讯</a>
+        <!--[if lte IE 6]>
+        <a href="@Url.Action("NewsInformation", "Home", new { id=12 })">新闻资讯
+        <table><tr><td>
+        <![endif]-->
+        <!--[if lte IE 6]>
+        </td></tr></table>
+        </a>
+        <![endif]-->
+    </li>
+    <li class="@Model.css_3">
+        <a class="hide" href="javascript:void;">学习模块</a>
+        <!--[if lte IE 6]>
+        <a href="#">学习模块
+        <table><tr><td>
+        <![endif]-->
+        <ul>
+            <li>
+                <a href="@Url.Action("Index", "Home", routeValues: new { Area = "Computer" })" title="计算机等级考试">计算机</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Home", routeValues: new { Area = "Accounting" })" title="会计从业资格考试">会计</a>
+            </li>
+        </ul>
+        <!--[if lte IE 6]>
+        </td></tr></table>
+        </a>
+        <![endif]-->
+    </li>
+    <li class="@Model.css_4">
+        <a class="hide" href="@Url.Action("ContactUs", "Home")" style="border-right-width:1px;">联系我们</a>
+        <!--[if lte IE 6]>
+        <a href="@Url.Action("ContactUs", "Home")">联系我们
+        <table><tr><td>
+        <![endif]-->
+        <!--[if lte IE 6]>
+        </td></tr></table>
+        </a>
+        <![endif]-->
+    </li>
+</ul>

@@ -1,0 +1,75 @@
+﻿@model Sower.Model.T_AverageUser
+@{
+    ViewBag.Title = "基础信息";
+    Layout = null;
+}
+
+@using (Ajax.BeginForm("Modify", "AverageUser", new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "content" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="panel-header">
+        基础信息
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.AverageUserID)
+    </div>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <div class="control-group">
+                @Html.LabelFor(model => model.UserName, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.DisplayFor(model => model.UserName)
+                </div>
+            </div>
+
+            <div class="control-group">
+                @Html.LabelFor(model => model.RealName, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.TextBoxFor(model => model.RealName)
+                    @Html.ValidationMessageFor(model => model.RealName)
+                </div>
+            </div>
+
+            <div class="control-group">
+                @Html.LabelFor(model => model.Sex, new { @class = "control-label" })
+                <div class="controls">
+                    <label class="radio inline">@Html.RadioButtonFor(model => model.Sex, 0) 男</label>
+                    <label class="radio inline">@Html.RadioButtonFor(model => model.Sex, 1) 女</label>
+                    <label class="radio inline">@Html.RadioButtonFor(model => model.Sex, 2) 保密</label>
+                </div>
+            </div>
+
+            <div class="control-group">
+                @Html.LabelFor(model => model.IDNumber, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.TextBoxFor(model => model.IDNumber)
+                    @Html.ValidationMessageFor(model => model.IDNumber)
+                </div>
+            </div>
+
+            <div class="control-group">
+                @Html.LabelFor(model => model.Phone, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.TextBoxFor(model => model.Phone)
+                    @Html.ValidationMessageFor(model => model.Phone)
+                </div>
+            </div>
+
+            <div class="control-group">
+                @Html.LabelFor(model => model.Address, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.TextBoxFor(model => model.Address)
+                    @Html.ValidationMessageFor(model => model.Address)
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="submit" class="btn" value="修改" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

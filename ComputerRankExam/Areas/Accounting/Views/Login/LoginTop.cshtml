@@ -1,0 +1,8 @@
+﻿@{
+    Layout = null;
+}
+
+<ul>
+    <li class="login"><a href="@Url.Action("Login", "AverageUser", routeValues: new { Area = "", returnUrl = Url.Action("Index", "Home") })">登录</a></li>
+    <li class="sign"><a href="@Url.Action("Register", "AverageUser", routeValues: new { Area = "" })">注册</a></li>
+</ul>

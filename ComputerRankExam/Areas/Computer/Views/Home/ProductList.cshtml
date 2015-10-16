@@ -1,0 +1,52 @@
+﻿@model ComputerRankExam.Areas.Computer.Models.ProductListViewModel
+@{
+    Layout = "~/Areas/Computer/Views/Shared/_Layout.cshtml";
+}
+
+<div class="zhuti" style=" min-Height:600px">
+    <table align="center" cellpadding="0" cellspacing="0" class="myStyle" style="width: 900px;
+        margin: 20px auto;">
+        <tr class="tabheader">
+            <td style="width: 430px">
+                产品
+            </td>
+            <td style="width: 70px">
+                价格
+            </td>
+            <td style="width: 100px">
+                版本
+            </td>
+            <td>
+                产品购买
+            </td>
+            <td>
+                产品下载
+            </td>
+        </tr>
+        @foreach (var item in Model.prodcutList)
+        {
+            <tr>
+                <td height="35">
+                    @item.Title
+                </td>
+                <td style="text-align: center">
+                    @item.Price 元
+                </td>
+                <td style="text-align: center">
+                    @item.beat
+                </td>
+                <td style="text-align: center">
+                      <a onclick="CheckGotouser()" href="javascript:void(0)">购买</a><img alt="" src="@Url.Content("~/Content/images/ypi_82.jpg")" />
+                </td>
+                <td style="text-align: center">
+                    <a href="/Category_25/Index.aspx">产品下载</a>
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="class_page">
+        <span class="pagecss">
+            @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
+        </span>
+    </div>
+</div>

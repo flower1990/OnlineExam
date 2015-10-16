@@ -1,0 +1,61 @@
+﻿@model ComputerRankExam.Areas.Accounting.Models.LeftViewModel
+@{
+    Layout = null;
+}
+<div class="div_ny_bkzn_main">
+    <div class="div_index_bkzn_title">
+        @Html.ActionLink("报考指南", "List", "Home", new { id = 9 }, new { target = "_blank" })
+    </div>
+    <div class="div_index_bkzn_content">
+        <div class="div_index_bkzn_menu">
+            <ul>
+                @foreach (var item in Model.zhinanArticles)
+                {
+                    <li>
+                        <label>
+                            &nbsp;·
+                        </label>@Html.ActionLink(@item.Title, "Detail", "Home", new { id = @item.Id }, new { target = "_blank" })
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="div_menu_line"></div>
+        <div class="div_index_bkzn_bz" style="width: auto;">
+            <font class="font_bz_01">业务流程：</font>
+            <br>
+        </div>
+        <div class="div_menu_line"></div>
+        <div class="div_index_kfrx">
+            <font class="font_bz_01">客服热线：@Model.phone</font>
+        </div>
+    </div>
+</div>
+<div class="div_ny_sybz_main">
+    <div class="div_index_sybz_main">
+        <div class="div_index_sybz_title">
+            <span>使用帮助</span>
+        </div>
+        <div class="div_index_sybz_content">
+            <div class="div_index_sybz_item bgColor">
+                <ul>
+                    @foreach (var item in Model.userHelpArticles)
+                    {
+                        <li>
+                            <label>
+                                ·
+                            </label>@Html.ActionLink(@item.Title, "Detail", "Home", new { id = @item.Id }, null)
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="div_index_lxdh">
+                <p>
+                    <font class="font_lxdh_01">客服热线</font>
+                    <br>
+                    <font class="font_lxdh_01">@Model.phone<br></font>
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

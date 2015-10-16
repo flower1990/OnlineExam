@@ -1,0 +1,155 @@
+﻿@model ComputerRankExam.Areas.Computer.Models.IndexViewModel
+@{
+    Layout = "~/Areas/Computer/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.ImageRolling.js")" type="text/javascript" charset="utf-8"></script>
+
+<div class="div_index_login_main">
+    <!-- 代码 开始 -->
+    <div id="playBox">
+        <div class="pre"></div>
+        <div class="next"></div>
+        <div class="smalltitle">
+            <ul>
+                <li class="thistitle"></li>
+                <li></li>
+                @*<li></li>*@
+            </ul>
+        </div>
+        <ul class="oUlplay">
+            <li><a href="#" target="_blank"><img src="@Url.Content("~/content/images/common/01.jpg")"></a></li>
+            <li><a href="#" target="_blank"><img src="@Url.Content("~/content/images/common/02.jpg")"></a></li>
+            @*<li><a href="#" target="_blank"><img src="@Url.Content("~/content/images/轮播图片3.jpg")"></a></li>*@
+        </ul>
+    </div>
+    <!-- 代码 结束 -->
+</div>
+
+<div class="div_index_help_main" style="height: auto;">
+    <div class="div_index_help_main_left">
+        <div class="info_search" style="height: auto; float: none;">
+            <div class="search_tit">
+                报名入口
+            </div>
+            <div class="sel_province">
+                @foreach (var item in Model.SignUpEntry)
+                {
+                    <a href="@Url.Action("Detail", "Home", new { id = @item.Id })" target="_blank">@item.Title</a>
+                }
+                <div class="more">
+                    <a href="@Url.Action("List", "Home", new { id=13})" target="_blank">更多&gt;&gt;</a>
+                </div>
+            </div>
+        </div>
+        <div class="marTop10">
+            <a href="http://chaxun.neea.edu.cn/examcenter/query.cn?op=doQueryCond&sid=300&pram=results"
+               target="_blank">
+                <img src="@Url.Content("~/content/images/button/check_score.jpg")" alt="成绩查询">
+            </a>
+        </div>
+    </div>
+
+    <div class="div_index_tab" style="border: 0px;">
+        <div class="Menubox">
+            <ul>
+                <li id="one1" class="hover"><span>计算机等级考试</span></li>
+            </ul>
+        </div>
+        <table style="width: 100%;" class="systab" cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+                <tr>
+                    <td height="30">
+                        名称
+                    </td>
+                    <td class="w3">
+                        类型
+                    </td>
+                    <td class="w3">
+                        下载
+                    </td>
+                </tr>
+                @foreach (var item in Model.downLoadFile)
+                {
+                    <tr>
+                        <td height="30">@item.FileTitle</td>
+                        <td>@(item.ExamFileTypeID == 2 ? "[客户端]" : "[资源]")</td>
+                        <td>@Html.ActionLink("下载", "DownLoadFile", "Home", new { id = item.FileID, page = Request.Url.ToString() }, new { target = "_blank" })</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="div_index_news_main">
+    <div class="div_index_hyxw_main">
+        <div class="div_index_hyxw_title">
+            <a href="@Url.Action("List", "Home", new { id=3})" target="_blank" class="alink">复习指导</a>
+            <a href="@Url.Action("List", "Home", new { id=3})" target="_blank" class="more">更多-&gt;</a>
+        </div>
+        <div class="div_index_hyxw_content">
+            <ul>
+                @foreach (var item in Model.reviewGuidArticle)
+                {
+                    <li>
+                        <img src="@Url.Content("~/content/images/common1.gif")" alt="" />
+                        @Html.ActionLink(@item.Title, "Detail", "Home", new { id = @item.Id }, new { target = "_blank" })
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="div_index_zcdx_main">
+        <div class="div_index_zcdx_title">
+            @Html.ActionLink("考试资讯", "List", "Home", new { id = 2 }, new { target = "_blank", @class = "zxdx_title" })
+            <a href="@Url.Action("List", "Home", new { id=2})" target="_blank" class="zxdx_more">更多 -&gt;</a>
+        </div>
+        <div class="div_index_zcdx_content">
+            <div style="border-bottom: 1px dashed gray; height: 100px;">
+                <table width="99%" height="102" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        @foreach (var item in Model.TopOnePicArticle)
+                        {
+                            <tr>
+                                <td rowspan="2" width="140" height="102" align="center" scope="col">
+                                    <a href="@Url.Action("Detail", "Home", new { id = @item.Id })" target="_blank" title="@item.Title">
+                                        <img alt="@item.Title" src="@Url.Content("~" + @item.Thumbnail)" border="0" width="116" height="86" />
+                                    </a>
+                                </td>
+                                <td width="58%" height="18px" align="left" scope="col" class="td_te">
+                                    @Html.ActionLink(@item.Title, "Detail", "Home", new { id = @item.Id }, new { target = "_blank" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <ul>
+                @foreach (var item in Model.ExamNewsArticle)
+                {
+                    <li>
+                        <img src="@Url.Content("~/content/images/common1.gif")" alt="" />@Html.ActionLink(@item.Title, "Detail", "Home", new { id = @item.Id }, new { target = "_blank" })
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <div class="div_index_kszx_main">
+        <div class="div_index_zcdx_title">
+            <a href="@Url.Action("List", "Home", new { id=10})" class="zxdx_title">试题中心</a><a href="@Url.Action("List", "Home", new { id=10})"
+                                                                                                 class="zxdx_more">更多 -&gt;</a>
+        </div>
+        <div class="div_index_stzx_content">
+            <ul>
+                @foreach (var item in Model.examinationCenterArticle)
+                {
+                    <li>
+                        <img src="@Url.Content("~/content/images/common1.gif")" alt="" />@Html.ActionLink(@item.Title, "Detail", "Home", new { id = @item.Id }, new { target = "_blank" })
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

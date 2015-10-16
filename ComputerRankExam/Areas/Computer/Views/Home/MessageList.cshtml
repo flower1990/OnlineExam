@@ -1,0 +1,61 @@
+﻿@model ComputerRankExam.Areas.Computer.Models.MessageListViewModel
+@{
+    ViewBag.Title = "留言板";
+    Layout = "~/Areas/Computer/Views/Shared/_Layout.cshtml";
+}
+
+<link href=@Url.Content("~/Content/Css/message.css") type="text/css" rel="Stylesheet" />
+
+<div class="zhuti">
+    <div class="r_navigation" style="text-align: center; margin-top:30px; width:100%;">
+        <a href="@Url.Action("Message")">签写留言</a>
+    </div>
+    <div class=" clear">
+    </div>
+    @foreach (var item in Model.messageList)
+    {
+        <div id="bbs_title">
+            <dl>
+                <div style="float: left">
+                    主题:<span id="ctl00_CphContent_LblTitle">@item.Title</span>
+                </div>
+                <div style="clear: both">
+                </div>
+            </dl>
+        </div>
+        <div id="bbs_center">
+            <div id="bbs_left">
+                @item.Name
+            </div>
+            <div id="bbs_right">
+                <span style="color: red">问题详情：</span>
+                <p style="line-height: 2">
+                    @item.Content
+                </p>
+                <hr />
+                <span style="color: red">管理员回复：</span>
+                <p style="line-height: 2">
+                    @MvcHtmlString.Create(item.Replay)<br />
+                    回复时间：2015-03-22
+                </p>
+            </div>
+        </div>
+        <div id="bbs_bot">
+            <div id="bbs_botleft">
+                <img src="@Url.Content("~/Content/images/icon/ip.gif")" alt="" border="0" />@item.CreateDate
+            </div>
+            <div id="bbs_botright">
+                <div style="text-align: left; padding-left: 5px;">
+                    Email：<a href="mailto:8591404@qq.com">@item.Email</a>
+                </div>
+            </div>
+        </div>
+        <div class=" clear" style=" height:10px;">
+        </div>
+    }
+    <div class="ym" style="border: 1px solid #DEDEE0; margin-bottom:30px;">
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("MessageList", "Home", routeValues: new { Area = "Accounting", page = x }))
+    </div>
+</div>
+<div class="clear">
+</div>

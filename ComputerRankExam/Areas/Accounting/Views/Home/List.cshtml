@@ -1,0 +1,41 @@
+﻿@model ComputerRankExam.Areas.Accounting.Models.ColumnsListViewModel
+@{
+    Layout = "~/Areas/Accounting/Views/Shared/_Layout.cshtml";
+}
+
+<div class="zhuti">
+    <div class="left">
+        @{Html.RenderAction("Left", "Home");}
+    </div>
+    <div class="right">
+        <div class="div_ny_title_bg">
+        </div>
+        <div class="div_ny_menu_bg">
+            <div class="dangqianlanmu">
+                @Html.ActionLink(@Model.ColumnTitle, "List", "Home", new { id = @Model.CurrentCategory }, new { target = "_blank" })
+            </div>
+        </div>
+        <div class="div_ny_news_item">
+            <!-- 子栏目列表信息列表开始 -->
+            <ul>
+                @foreach (var item in Model.Articles)
+                {
+                    <li>
+                        <span style="float: left;">
+                            [@Html.ActionLink(@item.ColumnTitle, "List", "Home", new { id = @Model.CurrentCategory }, new { target = "_blank" })]
+                            @Html.ActionLink(@item.Title, "Detail", "Home", new { id = @item.Id }, null)
+                        </span><span class="font_ny_news_item_01">@MvcHtmlString.Create(item.CreateTime.ToString("yyyy-MM-dd"))</span>
+                    </li>
+                }
+            </ul>
+            <!-- 子栏目列表信息列表结束 -->
+        </div>
+        <div class="ym">
+            <span class="pagecss">
+                @Html.PageLinks(Model.PagingInfo, x => Url.RouteUrl("Accounting_page", routeValues: new { page = x }))
+            </span>
+        </div>
+    </div>
+</div>
+<div class="clear">
+</div>

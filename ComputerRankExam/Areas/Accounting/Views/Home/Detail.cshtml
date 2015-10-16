@@ -1,0 +1,54 @@
+﻿@model ComputerRankExam.Areas.Accounting.Models.DetailViewModel
+@{
+    Layout = "~/Areas/Accounting/Views/Shared/_Layout.cshtml";
+}
+
+<div class="zhuti">
+    <div class="left">
+        @{Html.RenderAction("Left", "Home");}
+    </div>
+    <div class="right" style="overflow: visible;">
+        <div class="r_navigation" style="text-align: left; margin-top: 10px;">
+            您现在的位置：<a href="@Url.Action("Index", "Home")">在线练习</a>&gt;&gt;@Html.ActionLink(@Model.ArticleModel.ColumnTitle, "List", "Home", new { id = @Model.ArticleModel.ColumnId }, new { target = "_self" })&gt;&gt;正文内容
+        </div>
+        <div class="div_ny_news_item" style="min-height:740px;">
+            <div id="center_all">
+                <div id="main_bg1">
+                    <div id="main_right">
+                        <div id="main_right_box">
+                            <div class="c_spacing">
+                            </div>
+                            <!-- 主体内容开始 -->
+                            <div class="c_main_box" oncontextmenu="return false" ondragstart="return false" onselectstart="return false"
+                                 onselect="if(document.all){document.selection.empty()}" oncopy="if(document.all){document.selection.empty()}"
+                                 onbeforecopy="return false">
+                                <!-- 标题 -->
+                                <div class="c_title_text">
+                                    @Model.ArticleModel.Title
+                                </div>
+                                <div class="c_content_text">
+                                    <div class="c_content_overflow" style="text-align:justify; padding-top: 10px;" id="fontzoom">
+                                        @MvcHtmlString.Create(Model.ArticleModel.Content)
+                                    </div>
+                                    <div class="c_bot_text">
+                                        <span id="pe100_page_contentpage" class="pagecss"></span>
+                                    </div>
+                                </div>
+                                <!-- 正文 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="c_bot_text" style="text-align: center;">
+                <div class="font_left" style="margin: 20px auto;">
+                    <span>来源：本站原创</span> <span>发布时间：@MvcHtmlString.Create(Model.ArticleModel.CreateTime.ToString("yyyy-MM-dd")) </span>
+                </div>
+                <div class="clearbox">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clear">
+</div>

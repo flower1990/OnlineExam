@@ -1,0 +1,23 @@
+﻿@model Sower.Model.T_AverageUser
+@{
+    Layout = null;
+}
+
+<ul>
+    <li class="login_pass">会员名： @Model.UserName</li>
+    <li class="login_pass">账户金额：@Model.Cach 铜币</li>
+    <li class="login_pass">登录次数：@Model.LoginTimes 次</li>
+    <li class="login_pass">
+        @Html.ActionLink("【会员中心】", "Index", "Home", new { Area = "Member" }, new { target = "_blank" })
+    </li>
+    <li class="login_pass">
+        @Ajax.ActionLink("【退出登录】", "LoginExit", "Login",
+                new AjaxOptions
+                {
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "ajaxlogin",
+                    LoadingElementId = "ajax-loader",
+                    HttpMethod = "Get"
+                })
+    </li>
+</ul>

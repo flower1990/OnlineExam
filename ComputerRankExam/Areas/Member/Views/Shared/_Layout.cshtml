@@ -1,0 +1,96 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title-朔日测评-在线会员中心</title>
+
+    <!-- Le styles -->
+    @Styles.Render("~/Css/bootstrap")
+
+    <!--[if lte IE 6]>
+        @Styles.Render("~/Css/bootstrap-ie6")
+    <![endif]-->
+    <!--[if lte IE 7]>
+        @Styles.Render("~/Css/ie")
+    <![endif]-->
+    @Styles.Render("~/Css/member")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="#">朔日测评</a>
+                <div class="nav-collapse collapse">
+                    <p class="navbar-text pull-right">
+                        <a class="navbar-link" href="@Url.Action("Logout", "Home")">退出登录</a>
+                    </p>
+                    <ul class="nav">
+                        <li class="active"><a href="#">首页</a></li>
+                        <li><a href="#about">关于我们</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="span2 well">
+                <ul class="nav nav-list">
+                    @{
+                        if (ViewBag.UserType == "card")
+                        {
+                            Html.RenderAction("CardMenu", "Menu");
+                        }
+                        else
+                        {
+                            Html.RenderAction("UserMenu", "Menu");
+                        }
+                    }
+                </ul>
+            </div>
+            <div class="span9 well">
+                <div id="content" class="panel">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <footer>
+            <p style="text-align:center;">CopyRight 2009-2015 朔日测评 | 豫ICP备10203241号</p>
+        </footer>
+
+    </div><!--/.fluid-container-->
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <!--[if lte IE 6]>
+    @Scripts.Render("~/member/bootstrap-ie")
+    <![endif]-->
+    @Scripts.Render("~/bundles/bootstrap-ie")
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+        $('ul li').bind('click', function () {
+            $('ul li:not(this)').removeClass('active');
+            $(this).addClass('active');
+        });
+    </script>
+</body>
+</html>

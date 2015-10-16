@@ -1,0 +1,19 @@
+﻿@{
+    //ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    p {
+        text-indent: 2em;
+    }
+</style>
+<div class="wrap">
+    <div class="service-content">
+        <h3 style="text-align:center;">@Model.ArticleModel.Title</h3>
+        @MvcHtmlString.Create(Model.ArticleModel.Content)
+    </div>
+    <div class="clear">
+
+    </div>
+</div>

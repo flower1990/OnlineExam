@@ -1,0 +1,25 @@
+﻿@model Sower.Model.T_LearnCard
+@{
+    Layout = null;
+}
+
+<ul>
+    <li class="login_pass">卡号： @Model.Code</li>
+    <li class="login_pass">全部点数：@Model.TotalLicense</li>
+    <li class="login_pass">剩余点数：@Model.LeftLicense</li>
+    <li class="login_pass">登录次数：@Model.LoginTimes 次</li>
+    <li class="login_pass">
+        @Html.ActionLink("【会员中心】", "Index", "Home", new { Area = "Member" }, new { target = "_blank" })
+    </li>
+    <li class="login_pass">
+        @Ajax.ActionLink("【退出登录】", "LoginExit", "Login",
+                new AjaxOptions
+                {
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "ajaxlogin",
+                    LoadingElementId = "ajax-loader",
+                    HttpMethod = "Get"
+                })
+    </li>
+</ul>
+

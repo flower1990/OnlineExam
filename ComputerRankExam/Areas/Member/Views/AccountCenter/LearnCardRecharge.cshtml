@@ -1,0 +1,67 @@
+﻿@model ComputerRankExam.Areas.Member.Models.LearnCardRechargeViewMode
+@{
+    ViewBag.Title = "基础信息";
+    Layout = null;
+}
+
+@using (Ajax.BeginForm("LearnCardRecharge", "AccountCenter", new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "content" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="panel-header">
+        学习卡充值
+        <hr />
+        @Html.ValidationSummary(true) 
+    </div>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <div class="control-group">
+                @Html.LabelFor(model => model.LearnCard, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.TextBoxFor(model => model.LearnCard, new { placeholder = "请输入学习卡卡号" })
+                    @Html.ValidationMessageFor(model => model.LearnCard)
+                </div>
+            </div>
+
+            <div class="control-group">
+                @Html.LabelFor(model => model.Password, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.TextBoxFor(model => model.Password, new { placeholder = "请输入学习卡的密码" })
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+            </div>
+
+            <div class="control-group">
+                @Html.LabelFor(model => model.VerificationCode, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.TextBoxFor(model => model.VerificationCode, new { placeholder = "请输入验证码" })
+                    @Html.ValidationMessageFor(model => model.VerificationCode)
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">
+                    &nbsp;
+                </label>
+                <div class="controls">
+                    <img id="verificationcode" title="点击刷新" src="@Url.Action("VerificationCode", "AccountCenter")" style="cursor:pointer" />
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="controls">
+                    <input type="submit" class="btn" value="修改" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    $("#verificationcode").click(function () {
+        $("#verificationcode").attr("src", "@Url.Action("VerificationCode")?" + new Date());
+    })
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

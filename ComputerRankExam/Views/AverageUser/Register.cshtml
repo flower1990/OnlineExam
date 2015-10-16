@@ -1,0 +1,90 @@
+﻿@model ComputerRankExam.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = "用户注册";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form">
+        <h4>用户注册</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <dl>
+            <dd>
+                <div class="label">@Html.LabelFor(model => model.UserName)：</div>
+                <div class="ctrl">
+                    @Html.EditorFor(model => model.UserName)
+                    @Html.ValidationMessageFor(model => model.UserName)
+                </div>
+            </dd>
+            <dd>
+                <div class="label">@Html.LabelFor(model => model.Sex)：</div>
+                <div class="ctrl">
+                    @Html.RadioButton("Sex", 0, new { style = "width:20px;" }) 男
+                    @Html.RadioButton("Sex", 1, new { style = "width:20px;" }) 女
+                    @Html.RadioButton("Sex", 2, true, new { style = "width:20px;" }) 保密
+                    @Html.ValidationMessageFor(model => model.Sex)
+                </div>
+            </dd>
+            <dd>
+                <div class="label">@Html.LabelFor(model => model.Password)：</div>
+                <div class="ctrl">
+                    @Html.PasswordFor(model => model.Password)
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+            </dd>
+            <dd>
+                <div class="label">@Html.LabelFor(model => model.ConfirmPassword)：</div>
+                <div class="ctrl">
+                    @Html.PasswordFor(model => model.ConfirmPassword)
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                </div>
+            </dd>
+            <dd>
+                <div class="label">@Html.LabelFor(model => model.Email)：</div>
+                <div class="ctrl">
+                    @Html.EditorFor(model => model.Email)
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+            </dd>
+            <dd>
+                <div class="label">验证码：</div>
+                <div class="ctrl">
+                    @Html.TextBoxFor(model => model.VerificationCode)
+                    @Html.ValidationMessageFor(model => model.VerificationCode)
+                </div>
+            </dd>
+            <dd>
+                <div class="label">&nbsp;</div>
+                <div class="ctrl">
+                    <img id="verificationcode" title="点击刷新" src="@Url.Action("VerificationCode", "AverageUser")" style="cursor:pointer" />
+                </div>
+            </dd>
+            <dd>
+                <div class="label">&nbsp;</div>
+                <div class="ctrl">
+                    <button name="Submit" type="submit" style="border:0px;cursor: pointer;width:118px; height:32px;">
+                        <img src="@Url.Content("~/Content/images/button/tjzc.png")" />
+                    </button>
+                </div>
+            </dd>
+        </dl>
+        <div class="clear"></div>
+    </div>
+}
+
+
+
+<script type="text/javascript">
+    $("#verificationcode").click(function () {
+        $("#verificationcode").attr("src", "@Url.Action("VerificationCode")?" + new Date());
+    })
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

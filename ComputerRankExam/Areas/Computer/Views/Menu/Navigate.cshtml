@@ -1,0 +1,84 @@
+﻿@model ComputerRankExam.Areas.Computer.Models.NavigateViewModel
+@{
+    Layout = null;
+}
+
+<ul>
+    <li class="@Model.css_index">
+        <a class="hide" href="@Url.Action("Index", "Home", new { id = 0 })">首页</a>
+        <!--[if lte IE 6]>
+        <a href="@Url.Action("Index", "Home", new { id = 0 })">首页
+        <table><tr><td>
+        <![endif]-->
+        <!--[if lte IE 6]>
+        </td></tr></table>
+        </a>
+        <![endif]-->
+    </li>
+    <li class="@Model.css_1">
+        <a class="hide" href="@Url.Action("List", "Home", new { id = 2 })">考试资讯</a>
+        <!--[if lte IE 6]>
+        <a href="@Url.Action("List", "Home", new { id = 2 })">考试资讯
+        <table><tr><td>
+        <![endif]-->
+        <!--[if lte IE 6]>
+        </td></tr></table>
+        </a>
+        <![endif]-->
+    </li>
+    <li class="@Model.css_2">
+        <a class="hide" href="@Url.Action("List", "Home", new { id = 3 })">复习指导</a>
+        <!--[if lte IE 6]>
+        <a href="@Url.Action("List", "Home", new { id = 3 })">复习指导
+        <table><tr><td>
+        <![endif]-->
+        <!--[if lte IE 6]>
+        </td></tr></table>
+        </a>
+        <![endif]-->
+    </li>
+    <li class="@Model.css_3">
+        <a class="hide" href="@Url.Action("List", "Home", new { id = 11 })">产品中心</a>
+        <!--[if lte IE 6]>
+        <a href="@Url.Action("List", "Home", new { id = 11 })">产品中心
+        <table><tr><td>
+        <![endif]-->
+        <!--[if lte IE 6]>
+        </td></tr></table>
+        </a>
+        <![endif]-->
+    </li>
+    <li class="@Model.css_4">
+        <a class="hide" href="@Url.Action("DownLoad", "Home")" style="border-right-width:1px;">下载中心</a>
+        <!--[if lte IE 6]>
+        <a href="@Url.Action("DownLoad", "Home")">下载中心
+        <table><tr><td>
+        <![endif]-->
+        <!--[if lte IE 6]>
+        </td></tr></table>
+        </a>
+        <![endif]-->
+    </li>
+    <li class="@Model.css_5">
+        <a class="hide" href="@Url.Action("List", "Home", new { id = 4 })" style="border-right-width:1px;">常见问题</a>
+        <!--[if lte IE 6]>
+        <a href="@Url.Action("List", "Home", new { id = 4 })">常见问题
+        <table><tr><td>
+        <![endif]-->
+        <!--[if lte IE 6]>
+        </td></tr></table>
+        </a>
+        <![endif]-->
+    </li>
+    <li class="@Model.css_6">
+        <a class="hide" href="@Url.Action("MessageList", "Home", new { id = 100 })" style="border-right-width:1px;">留言板</a>
+        <!--[if lte IE 6]>
+        <a href="@Url.Action("MessageList", "Home", new { id = 100 })">留言板
+        <table><tr><td>
+        <![endif]-->
+        <!--[if lte IE 6]>
+        </td></tr></table>
+        </a>
+        <![endif]-->
+    </li>
+</ul>

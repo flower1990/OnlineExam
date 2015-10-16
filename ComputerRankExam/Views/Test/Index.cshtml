@@ -1,0 +1,27 @@
+﻿@model ComputerRankExam.Models.TestViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <div>
+            @Html.TextBoxFor(model => model.UserName)
+            @Html.ValidationMessageFor(model => model.UserName)
+            <br />
+            <input type="submit" value="提交" />
+        </div>
+    }
+</body>
+</html>

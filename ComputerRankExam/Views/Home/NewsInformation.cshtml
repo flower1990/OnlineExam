@@ -1,0 +1,29 @@
+﻿@model ComputerRankExam.Models.HomeViewModel
+@{
+    ViewBag.Title = "新闻资讯";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="wrap">
+    <div class="services">
+        <div class="service-content">
+            <h3>@ViewBag.Title</h3>
+            @foreach (var item in Model.Articles)
+            {
+                <ul>
+                    @*<li><span>@item.Id.</span></li>*@
+                    <li>
+                        <p>
+                            @Html.ActionLink(@item.Title, "Details", "Home", new { id = @item.Id }, null)
+                            @item.Description
+                        </p>
+                    </li>
+                    <div class="clear"> </div>
+                </ul>
+            }
+        </div>
+        <div class="clear"> </div>
+        <div class="ym">
+            @Html.PageLinks(Model.PagingInfo, x => Url.RouteUrl("Page", new { page = x }))
+        </div>
+    </div>
+</div>
